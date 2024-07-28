@@ -29,24 +29,31 @@ print_loop:
     jmp print_loop            ; Repeat the loop
 
 end_loop:
-    ; Exit sequence
-    mov eax, SYS_EXIT         ; sys_exit system call number
-    xor ebx, ebx              ; Status 0
-    int 0x80                  ; Call kernel
+
+    mov eax, SYS_EXIT         
+    xor ebx, ebx              
+    int 0x80                  
 
 print_char:
-    ; Print the character in [char]
-    mov eax, SYS_WRITE        ; sys_write system call number
-    mov ebx, STD_OUT          ; File descriptor 1 (stdout)
-    mov edx, 1                ; Length of the character
-    int 0x80                  ; Call kernel
-    ret                       ; Return to caller
+    
+    mov eax, SYS_WRITE        
+    mov ebx, STD_OUT          
+    mov edx, 1                
+    int 0x80                  
+    ret                       
 
 print_newline:
-    ; Print the newline character
-    mov eax, SYS_WRITE        ; sys_write system call number
-    mov ebx, STD_OUT          ; File descriptor 1 (stdout)
-    mov ecx, newline          ; Address of newline character
-    mov edx, 1                ; Length of the newline character
-    int 0x80                  ; Call kernel
-    ret                       ; Return to caller
+
+    mov eax, SYS_WRITE        
+    mov ebx, STD_OUT          
+    mov ecx, newline          
+    mov edx, 1                
+    int 0x80                  
+    ret                       
+
+; I struggled with this lab. I was originally using ASCII values
+; and running a loop while incrementing the current character in
+; each iteration, but it did not seem to work and would print out
+; only the letter A, so I decided to make an array, string, with
+; all the characters of the alphabet instead and loop through
+; before reaching the null terminator, which worked
