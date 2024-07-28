@@ -14,11 +14,11 @@ SYS_EXIT equ 1
 STD_OUT equ 1
 
 _start:
-    mov eax, [number]          ; Load the number into EAX
+    mov eax, [number]          
     call check_odd_even        ; Call the function to check odd/even
 
     ; Exit sequence
-    mov eax, SYS_EXIT          ; sys_exit system call number
+    mov eax, SYS_EXIT          
     xor ebx, ebx               
     int 0x80                    
 
@@ -36,10 +36,10 @@ even:
 
 display_result:
     ; Display the result
-    mov eax, SYS_WRITE         ; sys_write system call number
-    mov ebx, STD_OUT           ; std_out system call number
-    int 0x80                   ; Call kernel
-    ret                        ; Return to caller
+    mov eax, SYS_WRITE         
+    mov ebx, STD_OUT           
+    int 0x80                   
+    ret                        
 
 ; I found this lab pretty interesting. I think the only struggle I had was figuring out the approach to displaying whether 
 ; the number was odd or even, but other than that I have a grasp on the procedures in Assembly language
