@@ -42,4 +42,4 @@ display_result:
     ret                        
 
 ; I found this lab pretty interesting. I think the only struggle I had was figuring out the approach to displaying whether 
-; the number was odd or even, but other than that I have a grasp on the procedures in Assembly language
+; the number was odd or even, but other than that I have a grasp on the functions in Assembly language
